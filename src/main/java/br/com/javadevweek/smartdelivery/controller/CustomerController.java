@@ -2,6 +2,7 @@ package br.com.javadevweek.smartdelivery.controller;
 
 import br.com.javadevweek.smartdelivery.entity.Customer;
 import br.com.javadevweek.smartdelivery.service.CreateCustomerUseCase;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +18,12 @@ public class CustomerController {
     }
 
     @PostMapping
-    public Customer create(@RequestBody Customer customer) {
-        return createCustomerUseCase.execute(customer);
+    public ResponseEntity<?> create(@RequestBody Customer customer) {
+        try {
+            var costumer = createCustomerUseCase.execute(customer);
+            return ResponseEntity.ok().body(costumer);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.unprocessableEntity().body(e.getMessage());
+        }
     }
 }
