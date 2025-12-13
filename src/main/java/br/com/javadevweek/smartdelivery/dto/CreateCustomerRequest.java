@@ -7,14 +7,6 @@ public class CreateCustomerRequest {
     private String password;
     private String zipCode;
 
-    public CreateCustomerRequest(String name, String phone, String email, String password, String zipCode) {
-        this.name = name;
-        this.phone = phone;
-        this.email = email;
-        this.password = password;
-        this.zipCode = zipCode;
-    }
-
     public String getName() {
         return name;
     }

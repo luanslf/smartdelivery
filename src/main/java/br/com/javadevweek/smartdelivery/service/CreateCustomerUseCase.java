@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CreateCustomerUseCase {
-    private CustomerRepository customerRepository;
+    private final CustomerRepository customerRepository;
 
     public CreateCustomerUseCase(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
@@ -19,7 +19,6 @@ public class CreateCustomerUseCase {
         if (costumerByEmail.isPresent()) {
             throw new IllegalArgumentException("Email already exists");
         }
-        var saved = customerRepository.save(CustomerMapper.requestToEntity(request));
-        return saved;
+        return customerRepository.save(CustomerMapper.requestToEntity(request));
     }
 }

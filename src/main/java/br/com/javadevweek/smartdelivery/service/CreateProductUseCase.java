@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CreateProductUseCase {
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
     public CreateProductUseCase(ProductRepository productRepository) {
         this.productRepository = productRepository;
