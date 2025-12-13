@@ -28,19 +28,6 @@ public class Customer {
         this.zipCode = zipCode;
     }
 
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", address='" + address + '\'' +
-                ", zipCode='" + zipCode + '\'' +
-                '}';
-    }
-
     public UUID getId() {
         return id;
     }
