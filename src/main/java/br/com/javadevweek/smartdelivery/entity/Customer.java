@@ -20,13 +20,11 @@ public class Customer {
 
     public Customer() {}
 
-    public Customer(UUID id, String name, String phone, String email, String password, String address, String zipCode) {
-        this.id = id;
+    public Customer(String name, String phone, String email, String password, String zipCode) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.password = password;
-        this.address = address;
         this.zipCode = zipCode;
     }
 

@@ -1,6 +1,8 @@
 package br.com.javadevweek.smartdelivery.service;
 
+import br.com.javadevweek.smartdelivery.dto.CreateCustomerRequest;
 import br.com.javadevweek.smartdelivery.entity.Customer;
+import br.com.javadevweek.smartdelivery.mapper.CustomerMapper;
 import br.com.javadevweek.smartdelivery.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +14,12 @@ public class CreateCustomerUseCase {
         this.customerRepository = customerRepository;
     }
 
-    public Customer execute(Customer customer) {
-        var costumerByEmail = customerRepository.findByEmail(customer.getEmail());
+    public Customer execute(CreateCustomerRequest request) {
+        var costumerByEmail = customerRepository.findByEmail(request.getEmail());
         if (costumerByEmail.isPresent()) {
             throw new IllegalArgumentException("Email already exists");
         }
-        return customerRepository.save(customer);
+        var saved = customerRepository.save(CustomerMapper.requestToEntity(request));
+        return saved;
     }
 }
