@@ -2,7 +2,6 @@ package br.com.javadevweek.smartdelivery.controller;
 
 import br.com.javadevweek.smartdelivery.dto.CreateProductRequest;
 import br.com.javadevweek.smartdelivery.dto.ProductDto;
-import br.com.javadevweek.smartdelivery.entity.Product;
 import br.com.javadevweek.smartdelivery.service.CreateProductUseCase;
 import br.com.javadevweek.smartdelivery.service.ProductService;
 import org.springframework.http.HttpStatus;

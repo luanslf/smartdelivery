@@ -1,7 +1,6 @@
 package br.com.javadevweek.smartdelivery.service;
 
 import br.com.javadevweek.smartdelivery.dto.ProductDto;
-import br.com.javadevweek.smartdelivery.entity.Product;
 import br.com.javadevweek.smartdelivery.mapper.ProductMapper;
 import br.com.javadevweek.smartdelivery.repository.ProductRepository;
 import org.springframework.stereotype.Service;

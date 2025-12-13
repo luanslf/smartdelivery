@@ -1,12 +1,10 @@
 package br.com.javadevweek.smartdelivery.dto;
 
-import java.util.UUID;
-
 public class ProductDto {
-    private int code;
-    private String name;
-    private String description;
-    private double price;
+    private final int code;
+    private final String name;
+    private final String description;
+    private final double price;
 
     public ProductDto(int code, String name, String description, double price) {
         this.code = code;
