@@ -10,42 +10,33 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private String name;
     private String phone;
+
     @Column(unique = true)
-    private String email;
-    private String password;
     private String address;
     private String zipCode;
 
+    @Column(name = "user_id")
+    private UUID userId;
+
+    @OneToOne(fetch =  FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+    private User user;
+
     public Customer() {}
 
-    public Customer(String name, String phone, String email, String password, String zipCode) {
-        this.name = name;
+    public Customer(String phone, String zipCode,  UUID userId) {
         this.phone = phone;
-        this.email = email;
-        this.password = password;
         this.zipCode = zipCode;
+        this.userId = userId;
     }
 
     public UUID getId() {
         return id;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public String getZipCode() {
         return zipCode;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getEmail() {
-        return email;
     }
 
     public String getPhone() {
